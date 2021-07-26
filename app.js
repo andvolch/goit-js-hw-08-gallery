@@ -63,3 +63,41 @@ const galleryItems = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+
+// 1. Создание и рендер разметки по массиву данных galleryItems из app.js и предоставленному шаблону.
+
+const galleryRef = document.querySelector('.js-gallery');
+
+// galleryRef.classList.add("foto-gallery");
+
+const createEl = (acc, {preview, original, description}) => acc + 
+`<li class='gallery__item'>
+<a class='gallery__link' href='${original}'>
+<img class='gallery__image' 
+src="${preview}" 
+alt=${description}">
+</a>
+</li>`;
+
+
+const markUp = galleryItems.reduce(createEl, '');
+
+galleryRef.insertAdjacentHTML('beforeend', markUp);
+
+
+// 2. Реализация делегирования на галерее ul.js-gallery и получение url большого изображения.
+
+// 3. Открытие модального окна по клику на элементе галереи.
+
+// 4. Подмена значения атрибута src элемента img.lightbox__image.
+
+// 5. Закрытие модального окна по клику на кнопку button[data-action="close-lightbox"].
+
+// 6. Очистка значения атрибута src элемента img.lightbox__image. 
+
+// 7. Закрытие модального окна по клику на div.lightbox__overlay.
+
+// 8. Закрытие модального окна по нажатию клавиши ESC.
+
+// 9. Пролистывание изображений галереи в открытом модальном окне клавишами "влево" и "вправо".
